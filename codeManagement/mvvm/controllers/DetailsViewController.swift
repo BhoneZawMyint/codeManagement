@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import RxCocoa
+import RxSwift
 
 class DetailsViewController: UIViewController {
 
@@ -26,6 +28,17 @@ class DetailsViewController: UIViewController {
         voteAverageLbl.text = "\((mdata!.voteAverage * 1000)/100) %"
         voteCountLbl.text = "\(mdata!.voteCount * 1) Votes"
         overViewLbl.text = mdata?.overview
+        self.navigationController?.isNavigationBarHidden = true
+    
     }
-   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

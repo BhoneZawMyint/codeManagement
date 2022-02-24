@@ -67,7 +67,8 @@ class ViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let detailsViewController = storyboard.instantiateViewController(withIdentifier: "details") as! DetailsViewController
             detailsViewController.mdata = model
-            self.present(detailsViewController, animated: true, completion: nil)
+           // self.present(detailsViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
         }).disposed(by: self.bag)
         
         popularCollectionView.reloadData()
@@ -83,7 +84,8 @@ class ViewController: UIViewController {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let detailsViewController = storyboard.instantiateViewController(withIdentifier: "details") as! DetailsViewController
                         detailsViewController.mdata = model
-                        self.present(detailsViewController, animated: true, completion: nil)
+                        //self.present(detailsViewController, animated: true, completion: nil)
+                        self.navigationController?.pushViewController(detailsViewController, animated: true)
                     }).disposed(by: self.bag)
         upComingTableView.reloadData()
     }
